@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="openDialog" title="{i18n>ListTitle}">
+    <List   id="ProductList"
+            headerText="{i18n>ListTitle}" 
+            class="sapUiResponsiveMargin" 
+            width="auto" 
+            items="{product>/Products}"> 
+        <items>
+            <ObjectListItem 
+                id="ObjectList"
+                title="{product>Quantity} x {product>ProductName}"
+            >
+                <firstStatus>
+
+                    <ObjectStatus
+                                id="statustext"
+                                text="{ parts: [                                        
+                                'product>Quantity'], 
+                                formatter: '.formatter.quantityState' }"
+                            />
+
+                </firstStatus>
+            </ObjectListItem>            
+        </items>
+    </List>
+        <beginButton>
+            <Button id="btn-close" press="onCloseDialog" text="Cerrar"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>
